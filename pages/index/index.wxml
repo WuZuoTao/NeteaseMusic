@@ -1,23 +1,79 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
+<!-- index.wxml -->
+<view class="indexContent">
+  <view class="top">
+    <view class="indexSearch">
+      <view class="iconfont icon-gengduo1"></view>
+      <view class="search">
+        <text class="iconfont icon-sousuo"></text>
+        <text class="text">搜索</text>
       </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+      <view class="iconfont icon-maikefeng"></view>
+    </view>
+    <view class="indexSwiper">
+      <swiper 
+      indicator-dots 
+      indicator-color="#999" indicator-active-color="#fff"
+      easing-function="easeInOutCubic"
+      interval="3000"
+      duration="500"
+      autoplay
+    >
+      <swiper-item wx:for="{{swiperList}}" wx:key="targetId">
+        <image src="{{item.pic}}"></image>
+      </swiper-item>
+    </swiper>
+    </view>
+    <view class="indexScroll">
+      <scroll-view class="scrollView" 
+      scroll-x 
+      enable-flex
+      >
+        <view class="scrollItem">
+          <text class="iconfont icon-rili"></text>
+          <text class="text">每日推荐</text>
+        </view>
+        <view class="scrollItem">
+          <text class="iconfont icon-diantai"></text>
+          <text class="text">私人FM</text>
+        </view>
+        <view class="scrollItem">
+          <text class="iconfont icon-gedan"></text>
+          <text class="text">歌单</text>
+        </view>
+        <view class="scrollItem">
+          <text class="iconfont icon-paixingbang"></text>
+          <text class="text">排行榜</text>
+        </view>
+        <view class="scrollItem">
+          <text class="iconfont icon-zhibohuifang"></text>
+          <text class="text">推荐</text>
+        </view>
+        <view class="scrollItem">
+          <text class="iconfont icon-sousuo"></text>
+          <text class="text">直播</text>
+        </view>
+        <view class="scrollItem">
+          <text class="iconfont icon-zhuanji"></text>
+          <text class="text">数字专辑</text>
+        </view>
+        <view class="scrollItem">
+          <text class="iconfont icon-wodeguanzhu"></text>
+          <text class="text">关注新歌</text>
+        </view>
+        <view class="scrollItem">
+          <text class="iconfont icon-youxi"></text>
+          <text class="text">游戏专区</text>
+        </view>
+      </scroll-view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="center">
+    <view class="recommendMusic">
+      <view class="recommendMusicText">
+        <text>推荐歌单</text>
+        <text>更多></text>
+      </view>
+      <scroll-view></scroll-view>
+    </view>
   </view>
 </view>

@@ -1,10 +1,8 @@
 /**app.wxss**/
-.container {
+@import "/utils/iconConfig.wxss";
+page{
+  padding: 0;
+  margin: 0;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+  background: rgba(245, 240, 240, 0.7);
+}
