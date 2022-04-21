@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperList:[]
+    swiperList:[],
+    personalizedList:[]
   },
 
   /**
@@ -13,16 +14,32 @@ Page({
    */
   onLoad: function (options) {
     this.swiperApiFun()
+    this.personalizedFun()
   },
   
   // 轮播图页面请求API
   swiperApiFun(){
     request('/banner',{type:2}).then(res =>{
-      console.log(res)
       this.setData({
         swiperList:res.banners
       })
     })
+  },
+  // 推荐歌单API
+  personalizedFun(){
+    request('/personalized',{limit:10}).then((res =>{
+      let personalizedList = res.result
+      personalizedList.playCount =  personalizedList.forEach(item =>{
+        if(item.playCount > 100000){
+          return item.playCount = Math.floor(item.playCount / 10000) + '万'
+        }else if(item.playCount > 100000000){
+          return item.playCount = Math.floor(item.playCount / 100000000) + '亿'
+        }
+      })
+      this.setData({
+        personalizedList
+      })
+    }))
   },
 
   /**

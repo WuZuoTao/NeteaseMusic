@@ -1,5 +1,6 @@
 <!-- index.wxml -->
 <view class="indexContent">
+<!-- 头部导航栏  轮播图 横向导航栏 -->
   <view class="top">
     <view class="indexSearch">
       <view class="iconfont icon-gengduo1"></view>
@@ -67,13 +68,22 @@
       </scroll-view>
     </view>
   </view>
-  <view class="center">
+  <!-- 推荐歌曲部分 -->
     <view class="recommendMusic">
       <view class="recommendMusicText">
-        <text>推荐歌单</text>
-        <text>更多></text>
+        <text class="textLeft">推荐歌单</text>
+        <text class="textRigth">更 多<text class="iconfont icon-gengduo"></text></text>
       </view>
-      <scroll-view></scroll-view>
-    </view>
+      <scroll-view scroll-x enable-flex class="scrollViewImage">
+        <view class="scrollImage" wx:for="{{personalizedList}}" wx:key="id">
+          <view class="imgItem">
+            <image src="{{item.picUrl}}"></image>
+          </view>
+          <text class="imageText">{{item.name}}</text>
+          <text class="imageTopText iconfont icon-24gl-play">{{item.playCount}}</text>
+        </view>
+      </scroll-view>
   </view>
+  <!-- 随机推荐雅风 -->
+  <view class=""></view>
 </view>
