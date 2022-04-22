@@ -143,3 +143,113 @@
     top: 10rpx;
     right: 5rpx;
 }
+/* 随机播放的样式 */
+.randomMusic{
+    margin-top: 10rpx;
+    padding: 20rpx 0 20rpx 20rpx;
+    background: #ffffff;
+    margin-bottom: 15rpx;
+}
+.rendomTop .icon{
+    margin-right: 8rpx;
+}
+.rendomTop .rendomTopLeft{
+    font-size: 32rpx;
+    font-weight: bold;
+}
+.rendomTop .rendomTopRight{
+    float: right;
+    margin-right: 20rpx;
+    padding: 2rpx 14rpx;
+    font-size: 24rpx;
+    border: 1px solid #d6d2d2;
+    border-radius: 20rpx;
+}
+/* 滑动部分 */
+.rendomConten{
+    height: 360rpx;
+}
+.rendomConten .rendomSwiper{
+    height: 100%;
+}
+.rendomSwiper .content-top{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 680rpx;
+    height: 100rpx;
+    overflow: hidden;
+    margin-top: 20rpx;
+}
+.rendomSwiper .content-top .top-image{
+    position: relative;
+    width: 100rpx;
+    height: 100rpx;
+}
+.content-top .top-image image{
+    width: 100%;
+    height: 100%;
+}
+.content-top .icon{
+    position: absolute;
+    left: 28rpx;
+    top: 28rpx;
+    font-size: 48rpx;
+    color: rgba(214, 215, 221, 0.9)
+}
+.bfjt{
+    position: absolute;
+    right: 30rpx;
+    font-size: 24rpx;
+    color: rgb(175, 176, 180);
+    border: 1px solid  rgb(175, 176, 180);
+    padding: 2rpx 4rpx 2rpx 6rpx;
+    border-radius: 20rpx;
+}
+/* 推荐文字部分 */
+.bottom-text{
+    margin-left: 20rpx;
+    height: 100rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.bottom-text .bottom-flex{
+    display: flex;
+    flex-direction: row;
+    height: 40rpx;
+}
+.bottom-text .bottom-flex .bottom-zz{
+    display: block;
+    font-size:28rpx;
+    max-width: 420rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.text-name{
+    margin-left: 10rpx;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    color: rgb(175, 176, 180);
+}
+.bottom-text-name{
+    font-size: 24rpx;
+    line-height: 40rpx;
+    color: rgb(175, 176, 180);
+}
+.topMisuc{
+    margin-top: 10rpx;
+    padding-left: 20rpx;
+    background-color: #ffffff;
+}
+.topMisuc .toptextLeft{
+    font-size: 30rpx;
+    font-weight: 600;
+}
+.top_dh{
+    margin-top: 20rpx;
+    text-align: center;
+    font-size: 28rpx;
+    font-weight: 600;
+}

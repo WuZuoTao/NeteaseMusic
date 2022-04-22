@@ -85,5 +85,84 @@
       </scroll-view>
   </view>
   <!-- 随机推荐雅风 -->
-  <view class=""></view>
+  <view class="randomMusic">
+    <view class="rendomTop">
+      <text class="iconfont icon-shuaxin icon"></text>
+      <text class="rendomTopLeft">正在查找的好听歌曲</text>
+      <text class="iconfont icon-bofangqi-bofang rendomTopRight">播放</text>
+    </view>
+    <view class="rendomConten">
+      <swiper class="rendomSwiper" 	next-margin="25rpx">
+        <swiper-item class="swiperItem" wx:for="{{rendomList}}" wx:key="id" wx:for-item="itemList">
+          <view class="content-top" wx:for="{{itemList}}" wx:key="id">
+            <view class="top-image">
+              <image src="{{item.picUrl}}"></image>
+              <text class="iconfont icon-bofangqi-bofang icon"></text>
+            </view>
+            <view class="bottom-text">
+              <text class="iconfont icon-bofangqi-bofang bfjt"></text>
+             <view class="bottom-flex">
+              <text class="bottom-zz">{{item.name}}</text>
+              <text class="text-name">-{{item.song.artists[0].name}}</text>
+             </view>
+              <view class="bottom-js">
+                <text></text>
+                <text class="bottom-text-name">{{item.song.alias[0]}}</text>
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+    <!-- 歌单雷达 -->
+    <view class="recommendMusic">
+      <view class="recommendMusicText">
+        <text class="textLeft">你的歌单雷达</text>
+        <text class="textRigth">更 多<text class="iconfont icon-gengduo"></text></text>
+      </view>
+      <scroll-view scroll-x enable-flex class="scrollViewImage">
+        <view class="scrollImage" wx:for="{{radarList}}" wx:key="id">
+          <view class="imgItem">
+            <image src="{{item.picUrl}}"></image>
+          </view>
+          <text class="imageText">{{item.name}}</text>
+          <text class="imageTopText iconfont icon-24gl-play">{{item.playCount}}</text>
+        </view>
+      </scroll-view>
+  </view>
+  <!-- 排行榜 -->
+    <!-- 随机推荐雅风 -->
+    <view class="randomMusic">
+    <view class="rendomTop">
+      <text class="iconfont icon-shuaxin icon"></text>
+      <text class="rendomTopLeft">正在查找的好听歌曲</text>
+      <text class="iconfont icon-bofangqi-bofang rendomTopRight">播放</text>
+    </view>
+    <view class="rendomConten">
+      <swiper class="rendomSwiper" 	next-margin="25rpx">
+        <swiper-item class="swiperItem" wx:for="{{rendomList}}" wx:key="id" wx:for-item="itemList">
+        <view class="top_dh">盈盈音乐啊洗吧<text class="iconfont icon-gengduo"></text></view>
+          <view class="content-top" wx:for="{{itemList}}" wx:key="id">
+            <view class="top-image">
+              <image src="{{item.picUrl}}"></image>
+              <text class="iconfont icon-bofangqi-bofang icon"></text>
+            </view>
+            <view class="bottom-text">
+              <text class="iconfont icon-bofangqi-bofang bfjt"></text>
+             <view class="bottom-flex">
+              <text class="bottom-zz">{{item.name}}</text>
+              <text class="text-name">-{{item.song.artists[0].name}}</text>
+             </view>
+              <view class="bottom-js">
+                <text></text>
+                <text class="bottom-text-name">{{item.song.alias[0]}}</text>
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
 </view>
