@@ -1,2 +1,103 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class="mineContent"> 
+    <!-- 头部图标导航 -->
+    <view class="topcontent">
+    <text class="iconfont icon-gengduo1"></text>
+    <text class="iconfont icon-sousuo"></text>
+    </view>
+    <!-- 登入部分导航 -->
+    <view class="logincontent">
+    <view class="loginImage">
+        <image src=""></image>
+    </view>
+    <view class="loginText">
+    <text>立即登录</text>
+    <text class="iconfont icon-gengduo"></text>
+    </view>
+    </view>
+    <view class="navigationcontent">
+    <view class="navigationTop">
+        <view class="topItem">
+            <view class="iconfont icon-24gf-playCircle"></view>
+            <view class="itemText">最近播放</view>
+        </view>
+        <view class="topItem">
+            <view class="iconfont icon-yinle1"></view>
+            <view class="itemText">本地/下载</view>
+        </view>
+        <view class="topItem">
+            <view class="iconfont icon-shangchuanyunpan"></view>
+            <view class="itemText">云盘</view>
+        </view>
+        <view class="topItem">
+            <view class="iconfont icon-yigou"></view>
+            <view class="itemText">已购</view>
+        </view>
+        <view class="topItem">
+            <view class="iconfont icon-wodehaoyou"></view>
+            <view class="itemText">我的好友</view>
+        </view>
+        <view class="topItem">
+            <view class="iconfont icon-shoucang"></view>
+            <view class="itemText">收藏和赞</view>
+        </view>
+        <view class="topItem">
+            <view class="iconfont icon-shengbo"></view>
+            <view class="itemText">我的博客</view>
+        </view>
+        <view class="topItem">
+            <view class="iconfont icon-django"></view>
+            <view class="itemText">DJ专区</view>
+        </view>
+    </view>
+    <view class="navigationBottom">
+        <text class="iconfont icon-jia"></text>
+        <text>音乐应用</text>
+    </view>
+    </view>
+    <!-- 喜欢音乐部分 -->
+    <view class="lovecmusic">
+    <view class="loveImage">
+        <image src=""></image>
+        <text class="iconfont icon-shixin love"></text>
+    </view>
+    <view class="loveText">
+        <text>我喜欢的音乐</text>
+        <view>0首</view>
+    </view>
+    <view class="lovePattern">
+        <text class="iconfont icon-ziyuan heartbeat"></text>
+        <text>心动模式</text>
+    </view>
+    </view>
+    <!-- 歌单导航部分 -->
+    <view class="songList">
+    <text class="listborder">创建歌单</text>
+    <text>收藏歌单</text>
+    </view>
+    <!-- 创建歌单部分 -->
+    <view class="newsong">
+    <view class="newsongTop">
+        <text class="topText">创建歌单</text>
+        <text class="iconfont icon-jia jia"></text>
+        <text class="iconfont icon-gengduo2"></text>
+    </view>
+    <view class="newsongBottom">
+        <view class="newsongBottomImage">
+            <image src=""></image>
+            <text class="iconfont icon-daoru-02 tolead"></text>
+        </view>
+        <text class="bottomText">一键导入外部音乐</text>
+    </view>
+    </view>
+    <!-- 收藏歌单部分 -->
+    <view class="collectSong">
+        <view class="collectTop">
+            <text>收藏歌单</text>
+            <text class="iconfont icon-gengduo2"></text>
+        </view>
+        <view class="collectConten">
+            <text>暂无收藏歌单</text>
+        </view>
+    </view>
+</view>

@@ -1,1 +1,212 @@
 /* pages/mine/mine.wxss */
+.mineContent{
+    margin: 20rpx 20rpx;
+}
+/* 头部图标样式 */
+.topcontent{
+    display: flex;
+    justify-content: space-between;
+}
+.topcontent text{
+    font-size: 30rpx;
+    color: #000;
+    font-weight: 600;
+}
+/* 登入部分样式 */
+.logincontent{
+    margin-top: 60rpx;
+    height: 150rpx;
+    background: #ffffff;
+    border-radius: 20rpx;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+.logincontent .loginImage{
+    margin-top: -50rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    background-color: chocolate;
+}
+.logincontent .loginImage image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.logincontent .loginText{
+    margin-top: 20rpx;
+    font-size: 34rpx;
+    font-weight: 550;
+}
+.logincontent .loginText .iconfont{
+    margin-left: -6rpx;
+    font-size: 26rpx;
+}
+/* 导航内容区域样式 */
+.navigationcontent{
+    margin-top: 30rpx;
+    background-color: #ffffff;
+    border-radius: 20rpx;
+}
+.navigationcontent .navigationTop{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20rpx 20rpx;
+    border-bottom: 1rpx solid #ddd9d9;
+}
+.navigationTop .topItem{
+    width: 127rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20rpx 20rpx;
+}
+.navigationTop .topItem .iconfont{
+    font-size: 50rpx;
+    color: rgba(233, 14, 14,.9);
+}
+.itemText{
+    font-size: 24rpx;
+    margin-top: 10rpx;
+    color: #6b6b6b;
+}
+/* 底部区域 */
+.navigationBottom{
+    padding: 30rpx 0;
+    text-align: center;
+    font-size: 24rpx;
+    color: #b6b1b1;
+}
+.navigationBottom .iconfont{
+    margin-right: 5rpx;
+}
+/* 喜欢区域 */
+.lovecmusic{
+    margin-top: 30rpx;
+    padding: 20rpx;
+    border-radius: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+}
+.lovecmusic .loveImage{
+    width: 100rpx;
+    height: 100rpx;
+    position: relative;
+}
+.lovecmusic .loveImage image{
+    width: 100%;
+    height: 100%;
+    border-radius: 20rpx;
+    background: #b6b1b1;
+}
+.lovecmusic .loveImage .love{
+    position: absolute;
+    font-size: 50rpx;
+    color: #ffffff;
+    left: 25rpx;
+    top: 25rpx;
+}
+.lovecmusic .loveText{
+    flex: 1;
+    margin-left: 15rpx;
+}
+.lovecmusic .loveText text{
+    font-size: 28rpx;
+}
+.lovecmusic .loveText view{
+    font-size: 24rpx;
+    margin-top: 5rpx;
+    color: #c5c0c0;
+}
+.lovecmusic .lovePattern{
+    border: 1px solid #b6b1b1;
+    border-radius: 20rpx;
+    height: 40rpx;
+    padding: 0 12rpx;
+    font-size: 20rpx;
+    line-height: 40rpx;
+}
+.lovecmusic .lovePattern .heartbeat{
+    font-size: 20rpx;
+    margin-right: 6rpx;
+    color: rgb(240, 41, 41);
+}
+/* 歌单区域 */
+.songList{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30rpx;
+}
+.listborder{
+    border-bottom: 4rpx solid red;
+}
+/* 创建歌单 */
+.newsong{
+    margin-top: 30rpx;
+    background: #ffffff;
+    padding: 30rpx 20rpx;
+    border-radius: 20rpx;
+}
+.newsong .newsongTop{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 22rpx;
+    color: #8f8b8b;
+}
+.newsong .newsongTop .topText{
+    flex: 1;
+}
+.newsong .newsongTop .jia{
+    margin-right: 30rpx;
+}
+/*  -----------------*/
+.newsongBottom{
+    margin-top: 20rpx;
+    display: flex;
+    align-items: center;
+}
+.newsongBottom .newsongBottomImage{
+    width: 100rpx;
+    height: 100rpx;
+    position: relative;
+}
+.newsongBottom .newsongBottomImage .tolead{
+    position: absolute;
+    font-size: 52rpx;
+    top: 25rpx;
+    left: 25rpx;
+}
+.newsongBottom .newsongBottomImage image{
+    width: 100%;
+    height: 100%;
+    background: #e6e3e3;
+    border-radius: 20rpx;
+}
+.bottomText{
+    margin-left: 20rpx;
+    font-size: 26rpx;
+}
+/* 收藏歌单部分 */
+.collectSong{
+    margin-top: 30rpx;
+    background: #ffffff;
+    border-radius: 20rpx;
+}
+.collectSong .collectTop{
+    display: flex;
+    justify-content: space-between;
+    padding: 20rpx ;
+    font-size: 22rpx;
+    color: #8f8b8b;
+}
+.collectSong .collectConten{
+    height: 150rpx;
+    font-size: 26rpx;
+    color: #8f8b8b;
+    text-align: center;
+    line-height: 150rpx;
+}
