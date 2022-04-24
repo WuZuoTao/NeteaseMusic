@@ -1,1 +1,113 @@
 /* pages/login/login.wxss */
+.loginConten {
+    width: 100%;
+    height: 100%;
+    background:#c50a0a;
+    position: relative;
+}
+.login{
+    font-size: 110rpx;
+    color:#ffffff;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    margin-left: -60rpx;
+}
+.loginFun{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+}
+.loginFun .loginphone{
+    font-size: 32rpx;
+    color: #ffffff;
+    letter-spacing: 2rpx;
+}
+.qiehuan{
+    font-size: 24rpx;
+    padding: 8rpx;
+    border-radius: 30rpx;
+    color: #ebe8e8;
+    background: rgba(255, 253, 253, 0.3);
+    margin-left: 5rpx;
+}
+.tianyi{
+    font-size: 18rpx;
+    color: #eeecec;
+}
+.denglu{
+    width: 560rpx;
+    text-align: center;
+    background: #ffffff;
+    height: 80rpx;
+    font-size: 32rpx;
+    color: red;
+    line-height: 80rpx;
+    border-radius: 50rpx;
+    margin: 30rpx 0 0 90rpx;
+    letter-spacing: 5rpx;
+}
+.tiaokuan{
+    margin-top: 50rpx;
+    font-size: 24rpx;
+    color: #ffffff;
+}
+.tiaokuan .danxuan{
+    display: inline-block;
+    width: 17rpx;
+    height: 17rpx;
+    border-radius: 50%;
+    border: 2rpx solid #ffffff;
+}
+.tiaokuan .tongyi{
+    color: rgb(164, 166, 168);
+    margin: 0 10rpx;
+}
+.isconsent{
+    font-size: 21rpx;
+}
+.sanfang{
+    width: 100%;
+    position: absolute;
+    bottom: 15%;
+    text-align: center;
+}
+.sanfang text{
+    font-size: 38rpx;
+    display: inline-block;
+    width: 60rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    margin-right: 20rpx;
+    background: #ffffff;
+    border-radius: 50%;
+}
+.weixin{
+    color: rgb(105, 206, 3);
+}
+.QQ{
+    color: rgb(84, 84, 243);
+}
+.sanfang .weibo{
+    color: rgb(245, 93, 23);
+    font-size: 32rpx;
+}
+.sanfang  .pingguo{
+    color: #000000;
+    font-size: 32rpx;
+
+}
+.sanfang .wangyi{
+    color: red;
+    font-size: 32rpx;
+}
+.bottom{
+    position: absolute;
+    width: 100%;
+    margin-left: -30rpx;
+    bottom: 7.5%;
+    text-align: center;
+    color: #beb6b6;
+    font-size: 24rpx;
+}

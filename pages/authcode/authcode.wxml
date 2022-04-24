@@ -1,0 +1,12 @@
+<!--pages/authcode/authcode.wxml-->
+<view class="authcodeContent">
+    <view class="code">请输入验证码</view>
+    <view class="codeiphone">
+        <text>已发送至 +86 {{phone}}</text>
+        <text bindtap="resendFun">重新发送 <text wx:if="{{numberTime}}">{{numberTime}}</text></text>
+    </view>
+    <view class="codeText">
+        <input type="number" bindinput="inputCodeFun" value="{{code}}"/>
+    </view>
+    <view class="tishi">手机号已更换，无法接收短信? ></view>
+</view>

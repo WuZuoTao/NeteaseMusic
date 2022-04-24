@@ -1,0 +1,15 @@
+<!--pages/loginphone/loginphone.wxml-->
+<view class="phoneConten">
+    <view class="phoneText">登录体验更多精彩</view>
+    <view class="text">未注册手机号登录后将自动创建账号</view>
+    <view class="phoneinput">
+        <view>
+            <text class="iconfont icon-jia"></text>
+            <text>86</text>
+            <text class="iconfont icon-xiala-xia"></text>
+        </view>
+        <input type="number" placeholder="输入手机号" bindinput="inputPhone" placeholder-class="inputText" value="{{phone}}"/>
+    </view>
+    <view class="next {{phone?'shense':'qianse'}}" bindtap="toauthcodeFun">下一步</view>
+    <view class="tishi">找回账号</view>
+</view>

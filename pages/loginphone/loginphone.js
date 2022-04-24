@@ -1,11 +1,12 @@
-// pages/mine/mine.js
+// pages/loginphone/loginphone.js
+import request from '../../utils/request'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        phone:''
     },
 
     /**
@@ -14,20 +15,25 @@ Page({
     onLoad: function (options) {
 
     },
-
-    // 跳转到登录界面
-    toLoginFun(){
-        wx.navigateTo({
-          url: '/pages/login/login',
+    inputPhone(e){
+        this.setData({
+            phone:e.detail.value
         })
     },
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
+    toauthcodeFun(){
+        let { phone } = this.data
+        if(this.data.phone){
+            wx.navigateTo({
+                url: `/pages/authcode/authcode?phone=${phone}`,
+                success: res =>{
+                  request('/captcha/sent',
+                  {phone:this.data.phone}).then(resolve =>{
+                      console.log(resolve)  
+                  })
+                }
+              })
+        }
     },
-
     /**
      * 生命周期函数--监听页面显示
      */

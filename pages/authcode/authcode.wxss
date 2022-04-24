@@ -1,0 +1,33 @@
+/* pages/authcode/authcode.wxss */
+.authcodeContent{
+    margin: 20rpx;
+}
+.code{
+    font-size: 36rpx;
+    font-weight: 550;
+}
+.codeiphone{
+    margin-top: 10rpx;
+    font-size: 26rpx;
+    color: #a7a3a3;
+    display: flex;
+    justify-content: space-between;
+}
+.codeText{
+    margin-top: 20rpx;
+    display: flex;
+}
+.codeText input{
+    flex: 1;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 38rpx;
+    text-align: center;
+    border-bottom: 1rpx solid #999;
+}
+.tishi{
+    margin-top: 100rpx;
+    font-size: 22rpx;
+    color: #999999;
+    text-align: center;
+}

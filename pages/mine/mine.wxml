@@ -6,14 +6,14 @@
     <text class="iconfont icon-sousuo"></text>
     </view>
     <!-- 登入部分导航 -->
-    <view class="logincontent">
-    <view class="loginImage">
-        <image src=""></image>
-    </view>
-    <view class="loginText">
-    <text>立即登录</text>
-    <text class="iconfont icon-gengduo"></text>
-    </view>
+    <view class="logincontent" bindtap="toLoginFun">
+        <view class="loginImage">
+            <image src=""></image>
+        </view>
+        <view class="loginText" >
+        <text>立即登录</text>
+        <text class="iconfont icon-gengduo"></text>
+        </view>
     </view>
     <view class="navigationcontent">
     <view class="navigationTop">
