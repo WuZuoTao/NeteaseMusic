@@ -29,7 +29,7 @@
     </view>
     <view class="navigationcontent">
     <view class="navigationTop">
-        <view class="topItem">
+        <view class="topItem" bindtap="toRecentlyPlayFun">
             <view class="iconfont icon-24gf-playCircle"></view>
             <view class="itemText">最近播放</view>
         </view>

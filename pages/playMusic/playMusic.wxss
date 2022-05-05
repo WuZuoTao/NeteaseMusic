@@ -1,0 +1,106 @@
+/* pages/playMusic/playMusic.wxss */
+.playMusicContent{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #8a8787fd;
+}
+.needle{
+    position: absolute;
+    width: 172rpx;
+    height: 302rpx;
+    top: 80rpx;
+    left: 345rpx;
+    z-index: 99;
+    transform-origin:40rpx 0;
+    transform: rotate(-30deg);
+    transition: transform 1s;
+}
+.needleIsPlay{
+    transform: rotate(0deg);
+}
+.centerImage{
+    margin: 200rpx 0 auto  ;
+    width: 580rpx;
+    height: 580rpx;
+    border-radius: 50%;
+    background: #a09f9ffd;
+    position: relative;
+}
+.imageY{
+    width: 580rpx;
+    height: 580rpx;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.imageE{
+    width: 380rpx;
+    height: 380rpx;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.imageE image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/* 底部区域 */
+
+.bottomCenter{
+    width: 100%;
+    position: absolute;
+    bottom: 20rpx;
+}
+.bottomCenter .bottomBtton{
+    display: flex;
+    justify-content:  space-around;
+    margin-bottom: 50rpx;
+}
+.bottomCenter .music{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 30rpx;
+    height: 40rpx;
+    align-items: center;
+}
+.bottomCenter .music text{
+    color: #bdb5b5fd;
+    font-size: 28rpx;   
+}
+.musicBarControl{
+    flex: 1;
+    border: 1rpx solid #b3aaaa;
+    height: 1rpx;
+    margin: 0 10rpx;
+    display: flex;
+}
+.musicBarControl .barcontrol_Jdt{
+    width: 200rpx;
+    height: 1rpx;
+    border: 1rpx solid #bd4343fd;
+}
+.musicBarControl .audir-cirle{
+    width: 12rpx;
+    height: 12rpx;
+    background: #ffffff;
+    border-radius: 50%;
+    margin-top: -6rpx;
+    margin-right: -12rpx;
+}
+.bottomControl{
+    display: flex;
+    justify-content: space-around;
+    margin:50rpx 0;
+}

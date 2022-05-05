@@ -1,0 +1,24 @@
+<!--pages/recentlyPlay/recentlyPlay.wxml-->
+<view class="recentlyPlayContent">
+     <view class="playAll">
+        <text class="iconfont icon-bofang"></text>
+        <view class="playAllText">播放全部 <text>（{{playList.length}}）</text></view>
+        <text class="iconfont icon-gengduo2"></text>
+     </view>
+     <scroll-view enable-flex scroll-x class="scrollView">
+        <view class="playContent" wx:for="{{playList}}" wx:key="id">
+            <view class="playContentLeft">
+                <view>{{item.data.name}}<text class="leftText" wx:if="{{item.data.alia[0]}}">（{{item.data.alia[0]}}）</text> <text class="leftText" wx:else></text></view>
+                <view class="leftName">{{item.data.ar[0].name}}-{{item.data.name}}</view>
+            </view>
+            <view class="palyContentRight">
+                <text class="iconfont icon-bofangqi-bofang play"></text>
+                <text class="iconfont icon-gengduo2"></text>
+            </view>
+        </view>
+     </scroll-view>
+     <view class="clearMusicList">
+        <text class="iconfont icon-shuaxin clear"></text>
+        <text>清除全部播放记录</text>
+     </view>
+</view>

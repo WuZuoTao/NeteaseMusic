@@ -1,6 +1,8 @@
 {
   "pages":[
+    "pages/playMusic/playMusic",
     "pages/mine/mine",
+    "pages/recentlyPlay/recentlyPlay",
     "pages/password/password",
     "pages/authcode/authcode",
     "pages/index/index",

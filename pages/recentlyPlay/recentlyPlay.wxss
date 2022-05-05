@@ -1,0 +1,63 @@
+/* pages/recentlyPlay/recentlyPlay.wxss */
+.recentlyPlayContent{
+    margin: 0 20rpx;
+    height: 100%;
+}
+.playAll{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:30rpx 0;
+}
+.playAll .playAllText{
+    flex: 1;
+    margin-left:20rpx;
+}
+
+.playContent{
+    display: flex;
+    margin-bottom: 30rpx;
+    align-items: center;
+}
+.playContent .playContentLeft{
+    flex: 1;
+    margin-right: 30rpx;
+    font-size: 30rpx;
+}
+.playContent .playContentLeft view{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;  /*设置对其模式*/
+    -webkit-line-clamp: 1; /*设置多行的行数*/
+}
+.leftName{
+    font-size: 24rpx;
+    color: #a1a1a1;
+}
+.leftText{
+    color: #a1a1a1;
+}
+.palyContentRight{
+    color: #a1a1a1;
+}
+.palyContentRight text{
+    font-size: 40rpx;
+}
+.palyContentRight .play{
+    font-size: 30rpx;
+    border: 1rpx solid #a1a1a1;
+    border-radius: 15rpx;
+    padding: 0 5rpx;
+    margin-right: 20rpx;
+}
+.clearMusicList{
+    text-align: center;
+    color: #a1a1a1;
+    font-size: 28rpx;
+}
+.clearMusicList .clear{
+    font-size: 26rpx;
+    margin-right: 10rpx;
+    margin-bottom: 20rpx;
+}

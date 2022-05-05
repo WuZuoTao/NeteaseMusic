@@ -1,0 +1,42 @@
+<!--pages/playMusic/playMusic.wxml-->
+<view class="playMusicContent">
+    <view class="topName">程序员<text>关注</text></view>
+    <image class="needle {{isPlay?'needleIsPlay':''}}" src="../../utils/image/needle.png"></image>
+    <view class="centerImage" style="transform:rotate({{deg}}deg)">
+        <image class="imageY" src="../../utils/image/disc.png">
+        </image>
+        <view class="imageE">
+            <image src="../../utils/image/login.PNG"></image>
+        </view>
+    </view>
+    <view class="bottomCenter">
+        <view class="bottomBtton">
+            <view class="iconfont icon-ziyuan"></view>
+            <view class="iconfont icon-ziyuan"></view>
+            <view class="iconfont icon-ziyuan"></view>
+            <view class="iconfont icon-ziyuan"></view>
+            <view class="iconfont icon-ziyuan"></view>
+        </view>
+        <view class="music">
+        <!-- 开始时间 -->
+            <text>0.00</text>
+            <!-- 总长度 -->
+            <view class="musicBarControl">
+            <!-- 虚拟进度条 -->
+                <view class="barcontrol_Jdt">
+                </view>
+                 <!-- 小圆球 -->
+                 <view class="audir-cirle"></view>
+            </view>
+            <!-- 结束时间 -->
+            <text>3:56</text>
+        </view>
+         <view class="bottomControl">
+            <view class="iconfont icon-ziyuan"></view>
+            <view class="iconfont icon-ziyuan"></view>
+            <view class="iconfont icon-ziyuan"></view>
+            <view class="iconfont icon-ziyuan"></view>
+            <view class="iconfont icon-ziyuan"></view>
+         </view>
+    </view>
+</view>

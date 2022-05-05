@@ -47,6 +47,11 @@ Page({
        }
 
     },
+    toRecentlyPlayFun(){
+        wx.navigateTo({
+          url: '/pages/recentlyPlay/recentlyPlay',
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
