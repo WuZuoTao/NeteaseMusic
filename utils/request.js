@@ -7,7 +7,14 @@ export default (url,data={},method="GET") => {
           url: config.nodeJs + url,
           data,
           method,
+          header:{
+            cookie:wx.getStorageSync('cookies') ? wx.getStorageSync('cookies').filter(item => item.indexOf('MUSIC_U') !== -1)[0]:''
+        },
           success: res => {
+            let cokkis = wx.getStorageSync('cookies')
+            if(!cokkis && res.cookies.length > 10){
+                wx.setStorageSync('cookies', res.cookies)
+            }
             resolve(res.data)
           },
           fail: err =>{

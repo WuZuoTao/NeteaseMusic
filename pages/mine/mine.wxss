@@ -15,7 +15,7 @@
 /* 登入部分样式 */
 .logincontent{
     margin-top: 60rpx;
-    height: 150rpx;
+    padding-bottom: 30rpx;
     background: #ffffff;
     border-radius: 20rpx;
     display: flex;
@@ -42,6 +42,28 @@
 .logincontent .loginText .iconfont{
     margin-left: -6rpx;
     font-size: 26rpx;
+}
+/* 登入成功之后的样式 */
+.logincontent .userText{
+    margin-top: 20rpx;
+}
+.logincontent .userText .userName{
+    font-size: 36rpx;
+}
+.logincontent .userText .vip{
+    background: #c5c0c0;
+    color: #ececec;
+    font-size: 30rpx;
+    padding: 5rpx 10rpx;
+    border-radius: 20rpx;
+}
+.gz-text{
+    color: #b6b1b1;
+    font-size: 26rpx;
+    text-align: center;
+}
+.gz-text text{
+    margin-right: 20rpx;
 }
 /* 导航内容区域样式 */
 .navigationcontent{
@@ -162,6 +184,27 @@
 }
 .newsong .newsongTop .jia{
     margin-right: 30rpx;
+}
+.newsongMusicList{
+    display: flex;
+    margin-top: 20rpx;
+}
+.newsongMusicList image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 20rpx;
+}
+.newsongMusicList .MusicListText{
+    padding-left: 20rpx;
+}
+.MusicListBottomText .icon{
+    margin-right: 14rpx;
+    color: #3381e7;
+}
+.MusicListBottomText{
+    font-size: 28rpx;
+    color: #9c9c9c;
+    margin-top: 10rpx;
 }
 /*  -----------------*/
 .newsongBottom{

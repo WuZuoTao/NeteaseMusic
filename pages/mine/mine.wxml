@@ -8,11 +8,23 @@
     <!-- 登入部分导航 -->
     <view class="logincontent" bindtap="toLoginFun">
         <view class="loginImage">
-            <image src=""></image>
+            <image src="" wx:if="{{!user}}"></image>
+            <image src="{{user.profile.avatarUrl}}" wx:else></image>
         </view>
-        <view class="loginText" >
+        <view class="loginText" wx:if="{{!user}}">
         <text>立即登录</text>
         <text class="iconfont icon-gengduo"></text>
+        </view>
+        <view class="userText" wx:else>
+            <view class="userName">
+                <text class="nameText">{{user.profile.nickname}} </text>
+                <text class="iconfont  icon-VIP vip"> ></text>
+            </view>
+            <view class="gz-text">
+                <text class="gz">{{user.profile.follows}} 关注</text>
+                <text class="">{{user.profile.followeds}} 粉丝</text>
+                <text>LV.{{user.level}}</text>
+            </view>
         </view>
     </view>
     <view class="navigationcontent">
@@ -58,12 +70,12 @@
     <!-- 喜欢音乐部分 -->
     <view class="lovecmusic">
     <view class="loveImage">
-        <image src=""></image>
+        <image src="{{loveMusic?loveMusic.coverImgUrl:''}}"></image>
         <text class="iconfont icon-shixin love"></text>
     </view>
     <view class="loveText">
         <text>我喜欢的音乐</text>
-        <view>0首</view>
+        <view>{{loveMusic?loveMusic.trackCount:'0'}}首</view>
     </view>
     <view class="lovePattern">
         <text class="iconfont icon-ziyuan heartbeat"></text>
@@ -81,6 +93,16 @@
         <text class="topText">创建歌单</text>
         <text class="iconfont icon-jia jia"></text>
         <text class="iconfont icon-gengduo2"></text>
+    </view>
+    <view class="newsongMusicList" wx:for="{{musicList}}" wx:key="id">
+        <image src="{{item.coverImgUrl}}"></image>
+        <view class="MusicListText">
+            <view>{{item.name}}</view>
+            <view class="MusicListBottomText">
+                <text class="iconfont icon-bofang icon"></text>
+                <text>{{item.trackCount}}首</text>
+            </view>
+        </view>
     </view>
     <view class="newsongBottom">
         <view class="newsongBottomImage">

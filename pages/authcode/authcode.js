@@ -1,6 +1,7 @@
 // pages/authcode/authcode.js
 import request from '../../utils/request'
 let time
+let inputFocus = wx.createSelectorQuery()
 Page({
 
     /**
@@ -22,7 +23,15 @@ Page({
         })
         this.phoneStringFun(options.phone)
         this.codeTimeFun()
+        this.inputFocusFun()
+        wx.setStorageSync('isCookies','1')
         
+    },
+    // 自动获取焦点
+    inputFocusFun(){
+        
+        let input =  inputFocus.select('#inputText')
+        console.log(input)
     },
     // 掩饰电话号码
     phoneStringFun(phone){
@@ -37,8 +46,8 @@ Page({
     },
     // 创建一个定时器
     codeTimeFun(){
-        let { numberTime } = this.data
         time = setInterval(() =>{
+            let { numberTime } = this.data
             if(numberTime == 0){
                 clearInterval(time)
                 return
@@ -50,11 +59,18 @@ Page({
     },
     // 重新发送按钮
     resendFun(){
+        console.log('执行了一次')
         request('/captcha/sent',{phone:Number(this.data.phones)}).then(res =>{
+            console.log(res)
             if(Number(res.data) === 200){
-                this.data.numberTime = 59
+                this.setData({
+                    numberTime:59
+                })
                 this.codeTimeFun()
             }
+        },err =>{
+            console.log('执行到这里了')
+            console.log(err)
         })
     },
     // 验证码验证
@@ -76,7 +92,9 @@ Page({
                }else{
                 request('/login/cellphone',{phone:Number(this.data.phones),captcha:code}).then(resolve =>{
                     console.log(resolve)
-                    wx.setStorageSync('user', resolve)
+                    wx.setStorageSync('user', resolve.profile)
+                    wx.setStorageSync('cookie', resolve.cookie)
+                    wx.setStorageSync('token', resolve.token)
                     wx.switchTab({
                       url: '/pages/mine/mine',
                     })

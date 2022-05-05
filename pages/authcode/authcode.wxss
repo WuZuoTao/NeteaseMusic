@@ -1,6 +1,6 @@
 /* pages/authcode/authcode.wxss */
 .authcodeContent{
-    margin: 20rpx;
+    padding: 20rpx;
 }
 .code{
     font-size: 36rpx;
@@ -17,17 +17,29 @@
     margin-top: 20rpx;
     display: flex;
 }
-.codeText input{
-    flex: 1;
+.codeText text{
+    width: 160rpx;
+    margin-left: 30rpx;
     height: 80rpx;
     line-height: 80rpx;
     font-size: 38rpx;
     text-align: center;
     border-bottom: 1rpx solid #999;
 }
+.codeText .one{
+    margin-left: 0;
+}
 .tishi{
     margin-top: 100rpx;
     font-size: 22rpx;
     color: #999999;
     text-align: center;
+}
+.inputText{
+    left: -500rpx;
+    width: 2000rpx;
+    height: 90%;
+    z-index: 10;
+    position: absolute;
+    top: 10%;
 }

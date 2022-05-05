@@ -3,13 +3,34 @@
     <view class="phoneText">登录体验更多精彩</view>
     <view class="text">未注册手机号登录后将自动创建账号</view>
     <view class="phoneinput">
-        <view>
-            <text class="iconfont icon-jia"></text>
-            <text>86</text>
+        <view bindtap="iscodeShow">
+            <text>+{{code}}</text>
             <text class="iconfont icon-xiala-xia"></text>
         </view>
         <input type="number" placeholder="输入手机号" bindinput="inputPhone" placeholder-class="inputText" value="{{phone}}"/>
     </view>
     <view class="next {{phone?'shense':'qianse'}}" bindtap="toauthcodeFun">下一步</view>
     <view class="tishi">找回账号</view>
+</view>
+<view class="pullDown" wx:if="{{codeIsShow}}">
+    <view class="pullDownTop">
+        <text class="iconfont icon-guanbi topText" bindtap="iscodeShow"></text>
+        <text >选择国家和地区</text>
+    </view>
+    <view class="pullDownBottom">
+        <scroll-view id="scrollview" class="scrollView" style="height: {{widthHeight}}rpx;" enable-flex scroll-y enhanced showScrollbar >
+          <view class="scrollItem" wx:for="{{countriesList}}" wx:key="*this" wx:for-item='viewItem'>
+            <text class="itemText">{{viewItem.label}}</text>
+            <view class="itemView" wx:for="{{viewItem.countryList}}" wx:key="code"  data-code="{{item.code}}"bindtap="itemCodeFun">
+                <text class="viewFlex">{{item.zh}}</text>
+                <text class="viewText">+{{item.code}}</text>
+            </view>
+          </view>
+        </scroll-view>
+        <view class="itemRight" >
+            <view wx:for="{{conutriesText}}" wx:key="*this" >
+                {{item}}
+            </view>
+          </view>
+    </view>
 </view>

@@ -3,10 +3,15 @@
     <view class="code">请输入验证码</view>
     <view class="codeiphone">
         <text>已发送至 +86 {{phone}}</text>
-        <text bindtap="resendFun">重新发送 <text wx:if="{{numberTime}}">{{numberTime}}</text></text>
+        <text bindtap="resendFun" class="resendText">重新发送 <text wx:if="{{numberTime}}">{{numberTime}}</text></text>
     </view>
     <view class="codeText">
-        <input type="number" bindinput="inputCodeFun" value="{{code}}"/>
+        <text class="one">{{code[0]}}</text>
+        <text>{{code[1]}}</text>
+        <text>{{code[2]}}</text>
+        <text>{{code[3]}}</text>
     </view>
     <view class="tishi">手机号已更换，无法接收短信? ></view>
 </view>
+<input v-focus type="number" focus bindinput="inputCodeFun" value="{{code}}" class="inputText" id="inputText"/>
+

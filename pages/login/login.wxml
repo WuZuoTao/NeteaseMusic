@@ -4,7 +4,7 @@
     <view class="loginFun">
         <view class="loginphone">133····6803<text class="iconfont icon-qiehuan qiehuan" bindtap="loginphoneFun"></text></view>
         <view class="iconfont icon-zhuangtianyi tianyi">天翼账号提供认证服务</view>
-        <view class="denglu">一键登录</view>
+        <view class="denglu" bindtap="toPassword">一键登录</view>
         <view class="tiaokuan">
             <text class="danxuan" wx:if="{{!isConsent}}" bindtap="isConsentFun"></text>
             <text class="iconfont icon-dagou isconsent " wx:else bindtap="isConsentFun"></text>

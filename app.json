@@ -1,14 +1,15 @@
 {
   "pages":[
     "pages/mine/mine",
-    "pages/login/login",
+    "pages/password/password",
     "pages/authcode/authcode",
-    "pages/loginphone/loginphone",
     "pages/index/index",
+    "pages/login/login",
+    "pages/loginphone/loginphone",
+    "pages/logs/logs",
     "pages/blogs/blogs",
     "pages/concern/concern",
-    "pages/cloudVillage/cloudVillage",
-    "pages/logs/logs"
+    "pages/cloudVillage/cloudVillage"
   ],
   "window":{
     "backgroundTextStyle":"light",
