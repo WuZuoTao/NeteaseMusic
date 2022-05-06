@@ -1,42 +1,44 @@
 <!--pages/playMusic/playMusic.wxml-->
 <view class="playMusicContent">
-    <view class="topName">程序员<text>关注</text></view>
+    <view class="topName">{{musicObj.ar[0].name}}<text>关注</text></view>
     <image class="needle {{isPlay?'needleIsPlay':''}}" src="../../utils/image/needle.png"></image>
-    <view class="centerImage" style="transform:rotate({{deg}}deg)">
+    <view class="baidian"></view>
+    <view class="centerImage  {{isPlay?'discAnimation':''}}" style="transform:rotate({{deg}}deg)">
         <image class="imageY" src="../../utils/image/disc.png">
         </image>
         <view class="imageE">
-            <image src="../../utils/image/login.PNG"></image>
+            <image src="{{musicObj.al.picUrl}}"></image>
         </view>
     </view>
     <view class="bottomCenter">
         <view class="bottomBtton">
+            <view class="iconfont icon-kongxin"></view>
+            <view class="iconfont icon-iconfontzhizuobiaozhun023146"></view>
             <view class="iconfont icon-ziyuan"></view>
-            <view class="iconfont icon-ziyuan"></view>
-            <view class="iconfont icon-ziyuan"></view>
-            <view class="iconfont icon-ziyuan"></view>
-            <view class="iconfont icon-ziyuan"></view>
+            <view class="iconfont icon-pinglun"></view>
+            <view class="iconfont icon-gengduo2"></view>
         </view>
         <view class="music">
         <!-- 开始时间 -->
-            <text>0.00</text>
+            <text>{{startTime}}</text>
             <!-- 总长度 -->
             <view class="musicBarControl">
             <!-- 虚拟进度条 -->
-                <view class="barcontrol_Jdt">
+                <view class="barcontrol_Jdt" style="width: {{currenWidth}}rpx;">
                 </view>
                  <!-- 小圆球 -->
                  <view class="audir-cirle"></view>
             </view>
             <!-- 结束时间 -->
-            <text>3:56</text>
+            <text>{{endTime}}</text>
         </view>
          <view class="bottomControl">
-            <view class="iconfont icon-ziyuan"></view>
-            <view class="iconfont icon-ziyuan"></view>
-            <view class="iconfont icon-ziyuan"></view>
-            <view class="iconfont icon-ziyuan"></view>
-            <view class="iconfont icon-ziyuan"></view>
+            <view class="iconfont icon--lbxh" wx:if="{{isOptionNmb == 1}}" bindtap="isOptionNmbFun"></view>
+            <view class="iconfont {{isOptionNmb == 2?'icon-danquxunhuan1':'icon-suijibofang'}}" wx:else  bindtap="isOptionNmbFun"></view>
+            <view class="iconfont icon-shangyishouweidianji bf" id="onA" bindtap="switchFun"></view>
+            <view class="iconfont bofang {{isPlay?'icon-zanting':'icon-bofang'}}" bindtap="isPlayFun"></view>
+            <view class="iconfont icon-xiayishouweidianji bf" id="next" bindtap="switchFun"></view>
+            <view class="iconfont icon-gengduo3"></view>
          </view>
     </view>
 </view>

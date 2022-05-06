@@ -4,7 +4,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #8a8787fd;
+    background: #6b6767;
+}
+.topName{
+    font-size: 26rpx;
+    color: #b9b3b3fd;
+}
+.baidian{
+    width: 50rpx;
+    height: 50rpx;
+    background: #ffffff;
+    position: absolute;
+    left: 354rpx;
+    top: 60rpx;
+    border-radius: 50%;
+    z-index: 99;
+}
+.topName text{
+    font-size: 18rpx;
+    margin-left: 15rpx;
+    border: 1rpx solid #d4d4d4fd;
+    border-radius: 10rpx;
+    padding: 2rpx 5rpx;
 }
 .needle{
     position: absolute;
@@ -25,7 +46,7 @@
     width: 580rpx;
     height: 580rpx;
     border-radius: 50%;
-    background: #a09f9ffd;
+    background: #8a8484fd;
     position: relative;
 }
 .imageY{
@@ -55,6 +76,18 @@
     height: 100%;
     border-radius: 50%;
 }
+/* 磁盘动画 */
+.discAnimation{
+    animation: disc 20s linear 1s infinite;
+}
+@keyframes disc{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
 
 /* 底部区域 */
 
@@ -68,6 +101,10 @@
     justify-content:  space-around;
     margin-bottom: 50rpx;
 }
+.bottomCenter .bottomBtton view{
+    font-size: 42rpx;
+    color: #ffffff;
+}
 .bottomCenter .music{
     display: flex;
     justify-content: space-evenly;
@@ -80,27 +117,38 @@
     font-size: 28rpx;   
 }
 .musicBarControl{
-    flex: 1;
-    border: 1rpx solid #b3aaaa;
+    width: 534rpx;
     height: 1rpx;
+    border: 1rpx solid #b3aaaa;
     margin: 0 10rpx;
     display: flex;
+    align-items: center;
 }
 .musicBarControl .barcontrol_Jdt{
-    width: 200rpx;
     height: 1rpx;
     border: 1rpx solid #bd4343fd;
+    margin-left: -2rpx;
 }
 .musicBarControl .audir-cirle{
     width: 12rpx;
     height: 12rpx;
     background: #ffffff;
     border-radius: 50%;
-    margin-top: -6rpx;
-    margin-right: -12rpx;
+    margin-left: -6rpx;
 }
 .bottomControl{
     display: flex;
     justify-content: space-around;
-    margin:50rpx 0;
+    align-items: center;
+    margin:40rpx 0;
+}
+.bottomControl view{
+    font-size: 38rpx;
+    color: #ffffff;
+}
+.bottomControl .bf{
+    font-size: 30rpx;
+}
+.bottomControl  .bofang{
+    font-size: 70rpx;
 }

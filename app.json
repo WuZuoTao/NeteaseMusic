@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/playMusic/playMusic",
-    "pages/mine/mine",
     "pages/recentlyPlay/recentlyPlay",
+    "pages/mine/mine",
+    "pages/playMusic/playMusic",
     "pages/password/password",
     "pages/authcode/authcode",
     "pages/index/index",
@@ -13,6 +13,7 @@
     "pages/concern/concern",
     "pages/cloudVillage/cloudVillage"
   ],
+  "requiredBackgroundModes":["audio"],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#C20C0C",
