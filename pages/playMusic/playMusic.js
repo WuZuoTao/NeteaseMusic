@@ -17,22 +17,25 @@ Page({
         musicId:'', //当前播放歌单ID
         musicUrl:'', // 初始化音乐播放地址
         musicObj:{}, //初始化当前播放歌单对象
-        currenWidth:0 //初始化进度条长度
+        currenWidth:0 ,//初始化进度条长度
+        isLyric:false,  //是否显示歌词
+        lyric:[] , // 歌词对象
+        scrollTop:0, //滚动距离
+        lyricIndex:1 ,//当前的下标
     },
-
+    scrollTopFun(){},
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        // 判断当前音乐是否在播放
-        if(appGlobalData.globalData.appIsPlay && appGlobalData.globalData.appMusicId == options.id){
-            this.setData({
-                isPlay:true
-            })
-        }
         // 初始化一个音乐的实例
         this.backgroundAudioManager = wx.getBackgroundAudioManager()
-        let isOptionNmb =  wx.getStorageSync('isOptionNmb')
+        let isOptionNmb 
+        if(!wx.getStorageSync('isOptionNmb')){
+            isOptionNmb = this.data.isOptionNmb
+        }else{
+            isOptionNmb = wx.getStorageSync('isOptionNmb')
+        }
         this.setData({
             musicId:Number(options.id),
             isOptionNmb
@@ -52,7 +55,7 @@ Page({
             switch(isOptionNmb){
                 case 1:
                     console.log('执行了1')
-                    this.pubsubSwitchFun({type:'next',num:isOptionNmb})
+                    this.pubsubSwitchFun({type:'next',nmb:isOptionNmb})
                     break;
                 case 2:
                     console.log('执行了2')
@@ -67,11 +70,20 @@ Page({
     },
     // 监听音乐播放进度时间
     onTimeUpdateFun(){
-        let startTime = moment(this.backgroundAudioManager.currentTime * 1000).format('mm:ss')
-        let currenWidth = this.backgroundAudioManager.currentTime / this.backgroundAudioManager.duration * 534
+        let {lyric,lyricIndex,scrollTop} = this.data
+        let currentTime = this.backgroundAudioManager.currentTime * 1000
+        let startTime = moment(currentTime).format('mm:ss')
+        let currenWidth = this.backgroundAudioManager.currentTime / (this.data.musicObj.dt / 1000) * 534
+        if(lyric[lyricIndex].lyricTime < currentTime  && lyricIndex < lyric.length){
+            // scrollTop = Number(this.data.scrollTop) + 61.6
+            scrollTop = Number(scrollTop) + 61.6
+            lyricIndex  =  lyricIndex + 1
+        }
         this.setData({
             startTime,
-            currenWidth
+            currenWidth,
+            scrollTop,
+            lyricIndex
         })
     },
     // 控制音乐播放按钮
@@ -91,8 +103,11 @@ Page({
         let isPlay = this.data.isPlay
         if(isPlay){
             // 创建音乐播放对象
+            let { musicId } = this.data
+        // 判断当前音乐是否在播放
             this.backgroundAudioManager.title = this.data.musicObj.name
             this.backgroundAudioManager.src = this.data.musicUrl
+            appGlobalData.globalData.appMusicId = musicId
         }else{
             this.backgroundAudioManager.pause()
         }
@@ -109,16 +124,38 @@ Page({
             })
             wx.setNavigationBarTitle({
                 title:this.data.musicObj.name
-              })
-        })
-        request('/song/url',{id:id}).then(res =>{
-            this.setData({
-                musicUrl:res.data[0].url,
-                isPlay:true
             })
-            this.musicControlFun()
+            request('/song/url',{id}).then(res =>{
+                this.setData({
+                    musicUrl:res.data[0].url,
+                    isPlay:true
+                })
+                this.musicControlFun()
+            })
+            request('/lyric',{id}).then(res =>{
+                let lyric = res.lrc.lyric
+                let lyricArr = []
+                // 正则匹配
+                let ces = lyric.match(/(\[\d+:\d+.\d+\]) ?([\u4e00-\u9fa5]+ ? ?:? ?[\u4e00-\u9fa5]+)?/g)
+                for(let i = 0 ; i < ces.length ; i++){
+                    let lyricDate = String(ces[i].match(/(\d+:\d+.\d+)/ig))
+                    let lyricText = String(ces[i].match(/[\u4e00-\u9fa5]+ ? ?:? ?[\u4e00-\u9fa5]+/ig))
+                    let lyricTime = lyricDate.split(/\D+/g)
+                    lyricTime = (Number(lyricTime[0]) * 60  + Number(lyricTime[1])) * 1000 + Number(lyricTime[2])
+                    //  转换为字符串存到数组中
+                    if(lyricText !== 'null'){
+                        lyricArr.push({lyricText,lyricDate,lyricTime})
+                    }
+                }
+                // console.log('ces',ces)
+                // console.log('lyricDate',lyricDate)
+                // console.log('lyricText',lyricText)
+                // console.log(lyricArr)
+                this.setData({
+                    lyric:lyricArr
+                })
+            })
         })
-        appGlobalData.globalData.appMusicId = id
     },
     // 控制循环事件
     isOptionNmbFun(){
@@ -139,6 +176,7 @@ Page({
         let nmb = this.data.isOptionNmb
         this.pubsubSwitchFun({type,nmb})
     },
+
     pubsubSwitchFun(playData){
         // 关闭当前音乐
         this.backgroundAudioManager.stop()
@@ -151,5 +189,12 @@ Page({
             this.songDetailFun()
         })
         pubsub.publish('swichType',playData)
+    },
+
+    // 是否显示歌词函数
+    isLyricFun(){
+    this.setData({
+        isLyric:!this.data.isLyric
+    })
     }
 })

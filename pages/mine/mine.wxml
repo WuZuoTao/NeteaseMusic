@@ -2,8 +2,8 @@
 <view class="mineContent"> 
     <!-- 头部图标导航 -->
     <view class="topcontent">
-    <text class="iconfont icon-gengduo1"></text>
-    <text class="iconfont icon-sousuo"></text>
+        <text class="iconfont icon-gengduo1" bindtap="deleteStorage"></text>
+        <text class="iconfont icon-sousuo"></text>
     </view>
     <!-- 登入部分导航 -->
     <view class="logincontent" bindtap="toLoginFun">

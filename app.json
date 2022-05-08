@@ -1,11 +1,11 @@
 {
   "pages":[
+    "pages/index/index",
     "pages/recentlyPlay/recentlyPlay",
     "pages/mine/mine",
     "pages/playMusic/playMusic",
     "pages/password/password",
     "pages/authcode/authcode",
-    "pages/index/index",
     "pages/login/login",
     "pages/loginphone/loginphone",
     "pages/logs/logs",

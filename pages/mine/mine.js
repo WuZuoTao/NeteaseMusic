@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-      user:{} , // 初始化个人数据
+      user:'' , // 初始化个人数据
       loveMusic: {}, //初始化喜欢音乐数据
       musicList:{}  // 初始化创建歌单列表
     },
@@ -14,9 +14,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      if(wx.getStorageSync('user')){
-        this.getUserFun()
-      }
+        if(wx.getStorageSync('user')){
+            this.getUserFun()
+        }
     },
 
     // 读取storage里的用户信息
@@ -40,7 +40,7 @@ Page({
     // 跳转到登录界面
     toLoginFun(){
        if(!this.data.user){
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/login/login',
         })
         return
@@ -48,9 +48,20 @@ Page({
 
     },
     toRecentlyPlayFun(){
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/recentlyPlay/recentlyPlay',
         })
+    },
+    // 清除Storage
+    deleteStorage(){
+        wx.removeStorageSync('cookies')
+        wx.removeStorageSync('user')
+        wx.removeStorageSync('cookie')
+        wx.removeStorageSync('token')
+        wx.removeStorageSync('isCookies')
+        wx.redirectTo({
+            url: '/pages/login/login',
+          })
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

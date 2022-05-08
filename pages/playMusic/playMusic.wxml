@@ -1,6 +1,9 @@
 <!--pages/playMusic/playMusic.wxml-->
 <view class="playMusicContent">
+<!-- 头部区域部分 -->
     <view class="topName">{{musicObj.ar[0].name}}<text>关注</text></view>
+    <!-- 中间内容部分 -->
+   <view class="centent" wx:if="{{!isLyric}}" bindtap="isLyricFun">
     <image class="needle {{isPlay?'needleIsPlay':''}}" src="../../utils/image/needle.png"></image>
     <view class="baidian"></view>
     <view class="centerImage  {{isPlay?'discAnimation':''}}" style="transform:rotate({{deg}}deg)">
@@ -10,14 +13,26 @@
             <image src="{{musicObj.al.picUrl}}"></image>
         </view>
     </view>
-    <view class="bottomCenter">
-        <view class="bottomBtton">
+    <view class="bottomBtton">
             <view class="iconfont icon-kongxin"></view>
             <view class="iconfont icon-iconfontzhizuobiaozhun023146"></view>
             <view class="iconfont icon-ziyuan"></view>
             <view class="iconfont icon-pinglun"></view>
             <view class="iconfont icon-gengduo2"></view>
         </view>
+   </view>
+   <view class="centent lyricText" wx:else bindtap="isLyricFun">
+        <scroll-view scroll-y enable-flex enhanced show-scrollbar scroll-top="{{scrollTop}}rpx">
+            <view class="kongbai"></view>
+            <view class="lyricConten">
+                <view wx:for="{{lyric}}" wx:key="time" class="lyric {{lyric[lyricIndex - 1].lyricTime == item.lyricTime ? 'lyricTextColor':''}}" Data-id="{{item.lyricTime}}">{{item.lyricText}}</view>
+            </view>
+            <view class="kongbai"></view>
+        </scroll-view>
+        <view class="hengxian"></view>
+   </view>
+   <!-- 进度条部分 -->
+    <view class="bottomCenter">
         <view class="music">
         <!-- 开始时间 -->
             <text>{{startTime}}</text>
@@ -38,7 +53,7 @@
             <view class="iconfont icon-shangyishouweidianji bf" id="onA" bindtap="switchFun"></view>
             <view class="iconfont bofang {{isPlay?'icon-zanting':'icon-bofang'}}" bindtap="isPlayFun"></view>
             <view class="iconfont icon-xiayishouweidianji bf" id="next" bindtap="switchFun"></view>
-            <view class="iconfont icon-gengduo3"></view>
+            <view class="iconfont icon-gengduo3" bindtap="scrollTopFun"></view>
          </view>
     </view>
 </view>

@@ -25,7 +25,6 @@ Page({
                     console.log(random)
                     break;
                 case 2:
-                    break
                 case 1:
                     if(type === 'onA'){
                         (index === 0) && (index = playList.length)
