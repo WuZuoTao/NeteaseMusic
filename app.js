@@ -2,6 +2,6 @@
 App({
   globalData: {
       appMusicId:'',
-      appIsPlay:''
+      appIsPlay:true
   }
 })

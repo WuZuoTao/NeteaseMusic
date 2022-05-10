@@ -50,6 +50,12 @@ Page({
         this.backgroundAudioManager.onPlay(() =>{
             this.isPlay(true)
         })
+        this.backgroundAudioManager.onNext(() =>{
+            this.pubsubSwitchFun({type:'next',nmb:this.data.isOptionNmb})
+        })
+        this.backgroundAudioManager.onPrev(() =>{
+            this.pubsubSwitchFun({type:'onA',nmb:this.data.isOptionNmb})
+        })
         this.backgroundAudioManager.onEnded(() =>{
             let isOptionNmb = Number(this.data.isOptionNmb)
             switch(isOptionNmb){
@@ -60,6 +66,10 @@ Page({
                 case 2:
                     console.log('执行了2')
                     this.musicControlFun()
+                    this.setData({
+                        lyricIndex:1,
+                        scrollTop:0
+                    })
                     break;
                 case 3:
                     console.log('执行了3')
@@ -74,7 +84,7 @@ Page({
         let currentTime = this.backgroundAudioManager.currentTime * 1000
         let startTime = moment(currentTime).format('mm:ss')
         let currenWidth = this.backgroundAudioManager.currentTime / (this.data.musicObj.dt / 1000) * 534
-        if(lyric[lyricIndex].lyricTime < currentTime  && lyricIndex < lyric.length){
+        if(lyric[lyricIndex].lyricTime < currentTime  && lyricIndex != lyric.length - 1){
             // scrollTop = Number(this.data.scrollTop) + 61.6
             scrollTop = Number(scrollTop) + 61.6
             lyricIndex  =  lyricIndex + 1
@@ -88,28 +98,30 @@ Page({
     },
     // 控制音乐播放按钮
     isPlay(isPlay){
+       if(isPlay){
+            this.backgroundAudioManager.play()
+       }else{
+            this.backgroundAudioManager.pause()
+        }
         this.setData({
             isPlay
         })
         appGlobalData.globalData.appIsPlay = isPlay
-        this.musicControlFun()
     },
     isPlayFun(){
-        let isPlay = !this.data.isPlay
+        let  isPlay =  !this.data.isPlay
         this.isPlay(isPlay)
     },
     // 控制音乐播放停止功能
     musicControlFun(){
         let isPlay = this.data.isPlay
         if(isPlay){
-            // 创建音乐播放对象
-            let { musicId } = this.data
+        // 创建音乐播放对象
+        let { musicId } = this.data
         // 判断当前音乐是否在播放
             this.backgroundAudioManager.title = this.data.musicObj.name
             this.backgroundAudioManager.src = this.data.musicUrl
             appGlobalData.globalData.appMusicId = musicId
-        }else{
-            this.backgroundAudioManager.pause()
         }
     },
       // 获取歌曲详情API
@@ -130,6 +142,7 @@ Page({
                     musicUrl:res.data[0].url,
                     isPlay:true
                 })
+                console.log('/song/url','执行了几次请求')
                 this.musicControlFun()
             })
             request('/lyric',{id}).then(res =>{
@@ -141,7 +154,9 @@ Page({
                     let lyricDate = String(ces[i].match(/(\d+:\d+.\d+)/ig))
                     let lyricText = String(ces[i].match(/[\u4e00-\u9fa5]+ ? ?:? ?[\u4e00-\u9fa5]+/ig))
                     let lyricTime = lyricDate.split(/\D+/g)
-                    lyricTime = (Number(lyricTime[0]) * 60  + Number(lyricTime[1])) * 1000 + Number(lyricTime[2])
+                    if(lyricTime){
+                        lyricTime = (Number(lyricTime[0]) * 60  + Number(lyricTime[1])) * 1000 + Number(lyricTime[2])
+                    }
                     //  转换为字符串存到数组中
                     if(lyricText !== 'null'){
                         lyricArr.push({lyricText,lyricDate,lyricTime})
@@ -184,7 +199,10 @@ Page({
         // 发布消息给父级页面
         pubsub.subscribe('musicId',(m,musicId) =>{
             this.setData({
-                musicId
+                musicId,
+                lyricIndex:1,
+                scrollTop:0
+                
             })
             this.songDetailFun()
         })

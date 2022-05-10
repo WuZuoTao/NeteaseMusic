@@ -30,7 +30,7 @@
 .needle{
     position: absolute;
     width: 172rpx;
-    height: 302rpx;
+    height: 272rpx;
     top: 80rpx;
     left: 345rpx;
     z-index: 99;
@@ -38,11 +38,14 @@
     transform: rotate(-30deg);
     transition: transform 1s;
 }
+.scrollView{
+    transition: transform 1s;
+}
 .needleIsPlay{
-    transform: rotate(0deg);
+    transform: rotate(3deg);
 }
 .centerImage{
-    margin: 200rpx auto 0  ;
+    margin: 30% auto 0  ;
     width: 580rpx;
     height: 580rpx;
     border-radius: 50%;
@@ -89,9 +92,11 @@
     }
 }
 .centent{
-    height: 950rpx;
+    margin-top: 20rpx;
+    height: 79%;
     width: 100%;
     position:relative;
+    /* border: 1px solid red; */
 }
 .lyricText{
     overflow: hidden;
@@ -100,7 +105,7 @@
     height: 100%;
 }
 .kongbai{
-    height: 442rpx;
+    height: calc(50% - 30.8rpx);
 }
 .lyricConten{
     display: flex;
@@ -130,15 +135,18 @@
 .bottomCenter{
     width: 100%;
     position: absolute;
-    bottom: 20rpx;
+    bottom: 3%;
 }
- .bottomBtton{
+.bottomFloat .bottomBtton{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     display: flex;
-    justify-content:  space-around;
-    margin-top: 100rpx;
+    flex-direction:row;
+    justify-content:space-around;
 }
  .bottomBtton view{
-    font-size: 42rpx;
+    font-size: 56rpx;
     color: #ffffff;
 }
 .bottomCenter .music{
@@ -155,14 +163,14 @@
 .musicBarControl{
     width: 534rpx;
     height: 1rpx;
-    border: 1rpx solid #b3aaaa;
+    background: #b3aaaa;
     margin: 0 10rpx;
     display: flex;
     align-items: center;
 }
 .musicBarControl .barcontrol_Jdt{
     height: 1rpx;
-    border: 1rpx solid #bd4343fd;
+    background: #bd4343fd;
     margin-left: -2rpx;
 }
 .musicBarControl .audir-cirle{
@@ -176,15 +184,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin:40rpx 0;
+    margin-top: 20rpx;
 }
 .bottomControl view{
-    font-size: 38rpx;
+    font-size: 46rpx;
     color: #ffffff;
 }
 .bottomControl .bf{
-    font-size: 30rpx;
+    font-size: 38rpx;
 }
 .bottomControl  .bofang{
-    font-size: 70rpx;
+    font-size: 90rpx;
 }

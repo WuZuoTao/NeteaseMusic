@@ -1,7 +1,18 @@
 /* pages/recentlyPlay/recentlyPlay.wxss */
 .recentlyPlayContent{
-    margin: 0 20rpx;
+    padding: 0 20rpx;
     height: 100%;
+}
+/* 横向滚动scroll */
+.topScrllView{
+    margin: 0 20rpx;
+    display: flex;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+}
+.topScrllView .topScrllView{
+    width: 200rpx;
 }
 .playAll{
     display: flex;
@@ -13,7 +24,12 @@
     flex: 1;
     margin-left:20rpx;
 }
-
+.playAll .icon{
+    color: red;
+}
+.scrollView{
+    height: 90%;
+}
 .playContent{
     display: flex;
     margin-bottom: 30rpx;

@@ -47,8 +47,9 @@ Page({
        }
 
     },
+    // 跳转最近播放界面
     toRecentlyPlayFun(){
-        wx.redirectTo({
+        wx.navigateTo({
           url: '/pages/recentlyPlay/recentlyPlay',
         })
     },

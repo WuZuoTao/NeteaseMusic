@@ -8,7 +8,7 @@ Page({
      */
     data: {
         playList:[], //初始化播放列表
-        index:''  //初始化一个下标
+        index:0  //初始化一个下标
     },
     /**
      * 生命周期函数--监听页面加载
@@ -53,6 +53,17 @@ Page({
         console.log(e)
         wx.navigateTo({
           url: `/pages/playMusic/playMusic?id=`+id,
+        })
+        this.setData({
+            index
+        })
+    },
+    playAllToPlayMusic(e){
+        console.log(e)
+        let index = e.currentTarget.dataset.index
+        let id = this.data.playList[index].data.id
+        wx.navigateTo({
+            url: `/pages/playMusic/playMusic?id=`+id
         })
         this.setData({
             index
