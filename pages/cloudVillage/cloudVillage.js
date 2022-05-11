@@ -1,27 +1,57 @@
 // pages/cloudVillage/cloudVillage.js
+import request from "../../utils/request"
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        videoList:'' ,// 初始化视频列表
+        videoScrollList:'' ,//初始化导航
+        videoListId:'',//当前点击按钮的id
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.viodeApiFun()
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
     },
-
+    viodeApiFun(){
+        request('/video/category/list').then(res => {
+            let id = res.data[0].id
+            request("/video/group",{id,offset:100}).then(r =>{
+                this.setData({
+                    videoList:r.datas,
+                    videoListId:id
+                })
+            })
+            this.setData({
+                videoScrollList:res.data
+            })
+        })
+    },
+    scrollViewFun(e){
+        let id = e.currentTarget.dataset.id
+        request("/video/group",{id,offset:100}).then(r =>{
+            this.setData({
+                videoList:r.datas,
+                videoListId:id
+            })
+        })
+    },
+    toVideoPlayFun(e){
+        let id = e.currentTarget.dataset.id
+        wx.navigateTo({
+          url: '/pages/videoPlay/videoPlay?id='+id,
+        })
+    },
     /**
      * 生命周期函数--监听页面显示
      */

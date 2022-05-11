@@ -1,2 +1,19 @@
 <!--pages/cloudVillage/cloudVillage.wxml-->
-<text>pages/cloudVillage/cloudVillage.wxml</text>
+<view class="cloudVillageConcent">
+    <view class="topVideoScroll">
+        <scroll-view class="scrollView" scroll-x enable-flex> 
+            <view class="scrollItem {{item.id == videoScrollList[0].id ? 'one':''}}"   wx:for="{{videoScrollList}}" wx:key="id" data-id="{{item.id}}" bindtap="scrollViewFun">{{item.name}}</view>
+        </scroll-view>
+        <view class="videoContent">
+            <view class="videoItem" wx:for="{{videoList}}" wx:key="item" data-id="{{item.data.vid}}" bindtap="toVideoPlayFun">
+                <image src="{{item.data.coverUrl}}" class="itemImg" mode="aspectFit"></image>
+                <view class="itemText">{{item.data.title}}</view>
+                <view class="itemName">
+                    <image src="{{item.data.creator.avatarUrl}}" class="nameImage"></image>
+                    <text class="name">{{item.data.creator.nickname}}</text>
+                    <text class="iconfont icon-kongxin icon">115</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,50 @@
+<!--pages/videoPlay/videoPlay.wxml-->
+<view class="videoPlayContent">
+    <view class="video" bindtap="commandVideoFun">
+        <video src="{{url}}"
+        id="videoContext"
+        autoplay
+        bindtimeupdate="videoTateFun"
+        bindfullscreenchange="isShowControls"
+        controls="{{controls}}"
+        catchtap="commandVideoFun"
+        ><text class="iconfont icon-bofangqi-bofang videoTextIcon" wx:if="{{isPause}}"></text></video>
+    </view>
+    <view class="bottomConten">
+        <view class="bottomTopName">
+           <view class="topname"><image src="{{videoObj.creator.avatarUrl}}"></image></view>
+            <text>{{videoObj.creator.nickname}}</text>
+            <text class="love">+</text>
+        </view>
+        <view class="bottomCenterText">
+            {{videoObj.title}}
+        </view>
+        <view class="bottomTate">
+            <view class="tatecolor" style="width:{{currentWindth * 2}}rpx;">
+            <text class="tatecolorY"></text>
+            </view>
+            <view class="rightStatus">
+                <view class="status">
+                    <view class="iconfont icon-D-dianzan icon"></view>
+                    <view>{{rightStatus.likedCount}}</view>
+                 </view>
+                <view class="status">
+                    <view class="iconfont icon-liuyan icon"></view>
+                    <view>{{rightStatus.commentCount}}</view>
+                </view>
+                <view class="status">
+                    <view class="iconfont icon-zhuanfa icon"></view>
+                    <view>{{rightStatus.shareCount}}</view>
+                </view>
+                <view class="status">
+                    <view class="iconfont icon-shoucang1 icon"></view>
+                    <view>收藏</view>
+                </view>
+            </view>
+        </view>
+        <view class="bottomComment">
+        <text>千言万语，汇成一句话</text>
+        <view class="iconfont icon-quanping2 commentIcon" bindtap="magnifyFun"></view>
+        </view>
+    </view>
+</view>

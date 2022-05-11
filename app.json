@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/videoPlay/videoPlay",
     "pages/recentlyPlay/recentlyPlay",
     "pages/mine/mine",
     "pages/playMusic/playMusic",

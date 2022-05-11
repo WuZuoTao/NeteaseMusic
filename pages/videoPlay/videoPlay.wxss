@@ -1,0 +1,125 @@
+/* pages/videoPlay/videoPlay.wxss */
+
+.videoPlayContent{
+    background: #000;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.video{
+    flex: 1;
+    position:relative;
+}
+video{
+    width: 100%;
+    margin: 0;
+    margin: 28% 0;
+    z-index: 50;
+}
+.videoTextIcon{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 75rpx);
+    margin: auto;
+    font-size: 150rpx;
+    color: rgba(224, 221, 224, 0.5);
+    z-index: 99;
+}
+
+/* 底部显示区域 */
+
+.bottomConten{
+    color: #fafafa;
+    padding-bottom: 60rpx;
+    /* background:red; */
+}
+.bottomTopName{
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    margin-left: 20rpx;
+}
+.topname{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    margin-right: 10rpx;
+}
+.bottomTopName .topname image{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    margin-top: 2rpx;
+}
+.love{
+    margin-left: 10rpx;
+    text-align: center;
+    width: 60rpx;
+    background: red;
+    border-radius: 20rpx;
+}
+.bottomCenterText{
+    margin: 20rpx;
+    width: 80vw;
+}
+.bottomTate{
+    position: relative;
+    height: 1rpx;
+    background: #ffffff;
+
+}
+.bottomTate  .tatecolor{
+    position: relative;
+    height: 1rpx;
+    width: 0;
+    background: red;
+}
+.bottomTate  .tatecolor .tatecolorY{
+    width: 6rpx;
+    height: 6rpx;
+    border-radius: 50%;
+    background: #ffffff;
+    position: absolute;
+    right: -3rpx;
+    top: -3rpx;
+}
+
+.bottomComment{
+    margin: 40rpx 20rpx;
+    color: #b6b6b6;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.bottomComment .commentIcon{
+    width: 50rpx;
+    height: 50rpx;
+    text-align: center;
+    line-height: 50rpx;
+    margin-right: 30rpx;
+    background: #383737;
+    color: #b9b9b9;
+    font-size: 36rpx;
+    border-radius: 50%;
+}
+
+/* 右边操作 */
+.rightStatus{
+    position: absolute;
+    right: 30rpx;
+    bottom: 10rpx;
+    color: #ffffff;
+}
+.rightStatus .status{
+    margin: 30rpx 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.rightStatus .status .icon{
+    padding-bottom: 10rpx;
+    font-size: 40rpx;
+}
