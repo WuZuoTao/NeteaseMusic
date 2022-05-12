@@ -28,7 +28,7 @@
             <view class="rightStatus">
                 <view class="status" bindtap="noLickFun">
                     <view class="iconfont icon-dianzan_kuai icon {{like ? 'lick':''}}"></view>
-                    <view>{{rightStatus.likedCount？rightStatus.likedCount:'点赞'}}</view>
+                    <view>{{rightStatus.likedCount?rightStatus.likedCount:'点赞'}}</view>
                  </view>
                 <view class="status">
                     <view class="iconfont icon-liuyan icon"></view>
