@@ -123,3 +123,39 @@ video{
     padding-bottom: 10rpx;
     font-size: 40rpx;
 }
+.rightStatus .status .lick{
+    color: #f32c2c;
+    animation:lick 1s;
+}
+@keyframes lick{
+    0%{
+        font-size: 0;
+    }
+    50%{
+        font-size: 45rpx;
+    }
+    75%{
+        font-size: 35rpx;
+    }
+    100%{
+        font-size: 40rpx;
+    }
+}
+/*  点赞按钮 */
+.likeIconConten{
+    width: 120rpx;
+    height: 120rpx;
+    position: absolute;
+    font-size: 120rpx;
+    color: #f12222;
+    transform-origin:left bottom;
+    animation: likeIcon .5s;
+    z-index: 99;
+}@keyframes likeIcon{
+    0%{
+        transform: rotate(-25deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}

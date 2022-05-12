@@ -4,7 +4,7 @@ import config from './request.config'
 export default (url,data={},method="GET") => {
     return new Promise((resolve,reject) =>{
         wx.request({
-          url: config.dingding + url,
+          url: config.nodeJs + url,
           data,
           method,
           header:{

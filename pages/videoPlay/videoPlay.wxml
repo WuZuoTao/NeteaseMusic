@@ -4,6 +4,8 @@
         <video src="{{url}}"
         id="videoContext"
         autoplay
+        loop
+        title="{{videoObj.title}}"
         bindtimeupdate="videoTateFun"
         bindfullscreenchange="isShowControls"
         controls="{{controls}}"
@@ -24,17 +26,17 @@
             <text class="tatecolorY"></text>
             </view>
             <view class="rightStatus">
-                <view class="status">
-                    <view class="iconfont icon-D-dianzan icon"></view>
-                    <view>{{rightStatus.likedCount}}</view>
+                <view class="status" bindtap="noLickFun">
+                    <view class="iconfont icon-dianzan_kuai icon {{like ? 'lick':''}}"></view>
+                    <view>{{rightStatus.likedCount？rightStatus.likedCount:'点赞'}}</view>
                  </view>
                 <view class="status">
                     <view class="iconfont icon-liuyan icon"></view>
-                    <view>{{rightStatus.commentCount}}</view>
+                    <view>{{rightStatus.commentCount? rightStatus.commentCount:'抢沙发'}}</view>
                 </view>
                 <view class="status">
                     <view class="iconfont icon-zhuanfa icon"></view>
-                    <view>{{rightStatus.shareCount}}</view>
+                    <view>{{rightStatus.shareCount ? rightStatus.shareCount:'转发'}}</view>
                 </view>
                 <view class="status">
                     <view class="iconfont icon-shoucang1 icon"></view>
@@ -47,4 +49,5 @@
         <view class="iconfont icon-quanping2 commentIcon" bindtap="magnifyFun"></view>
         </view>
     </view>
+    <text class="iconfont icon-dianzan_kuai likeIconConten" wx:if="{{likeIconList.length > 1}}" wx:for="{{likeIconList}}" wx:key="index" style="top:{{item.top }}rpx;left:{{item.left}}rpx;" bindtap="commandVideoFun"></text>
 </view>

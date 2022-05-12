@@ -1,6 +1,9 @@
 // pages/videoPlay/videoPlay.js
 import request from '../../utils/request'
 const  windowWidth = wx.getWindowInfo().windowWidth
+let index = 0
+let time
+let lickTime
 Page({
 
     /**
@@ -16,7 +19,9 @@ Page({
         duration:"99:99",  // 初始化结束时间
         currentWindth:0 , //初始化进度条长度
         controls:false ,  // 是否显示按钮
-        isPause:false // 是否暂停
+        isPause:false ,// 是否暂停
+        like:false ,// 是否点赞
+        likeIconList:[] // 创建dom元素
     },
 
     /**
@@ -38,6 +43,13 @@ Page({
             })
         })
         request('/video/detail/info',{vid:id}).then(res => {
+            let likedCount = res.likedCount
+            if(likedCount > 10000){
+                likedCount = Math.abs(likedCount / 10000).toFixed(1) + '万'
+            }else if(likedCount > 100000000){{
+                likedCount = Math.floor(likedCount / 100000000) + '亿'
+            }}
+            res.likedCount = likedCount
             this.setData({
                 rightStatus:res
             })
@@ -59,17 +71,57 @@ Page({
         })
     },
     // 控制视频播放还是暂停
-    commandVideoFun(){
+    commandVideoFun(e){
         let isVideoShow = !this.data.isVideoShow
         let isPause = !this.data.isPause
-        if(isVideoShow){
-            this.videoContext.pause()
-        }else{
-            this.videoContext.play()
+        let top = Math.ceil(e.detail.y) * 2 - 120
+        let left = Math.ceil(e.detail.x) * 2 - 60
+        console.log(top, left)
+        let likeIconList = this.data.likeIconList
+        index += 1
+        clearTimeout(time)
+        time = setTimeout(() => {
+            if(index == 1) {
+                if(isVideoShow){
+                    this.videoContext.pause()
+                }else{
+                    this.videoContext.play()
+                }
+                this.setData({
+                    isVideoShow,
+                    isPause
+                })
+            }
+            index = 0
+        },300)
+        if(index > 1){
+            if(!this.data.like){
+                request('/resource/like',{type:5,id:this.data.id,t:1}).then(res => {
+                    if(res.code === 200){
+                        this.setData({
+                            like:true
+                        })
+                    }
+                })
+            }
+            likeIconList.push({top,left})
+            console.log(likeIconList)
+            setTimeout(() => {
+                likeIconList.shift()
+                this.setData({
+                    likeIconList
+                })
+            },1000)
+            clearTimeout(lickTime)
+            lickTime = setTimeout(() => {
+                index = 0
+            },300)
+            this.setData({
+                likeIconList
+            })
         }
-        this.setData({
-            isVideoShow,
-            isPause
+        request('/playlist/mylike').then(res =>{
+            // console.log(res)
         })
     },
     // 全屏播放
@@ -80,6 +132,16 @@ Page({
     isShowControls(){
         this.setData({
             controls:!this.data.controls
+        })
+    },
+    // 点赞与取消点赞
+    noLickFun(){
+        let like = !this.data.like
+        request('/resource/like',{type:5,id:this.data.id,t:Number(like)}).then(res => {
+            console.log(res)
+        })
+        this.setData({
+            like
         })
     },
     /**
