@@ -27,6 +27,14 @@ Page({
         request('/video/category/list').then(res => {
             let id = res.data[0].id
             request("/video/group",{id,offset:100}).then(r =>{
+                    r.datas.forEach(item => {
+                    if(item.data.praisedCount > 10000){
+                        item.data.praisedCount = Math.abs(item.data.praisedCount / 10000).toFixed(1) + '万'
+                    }else if(item.data.praisedCount > 100000000){
+                        item.data.praisedCount = Math.abs(item.data.praisedCount / 10000).toFixed(1) + '亿'
+                    }
+                    return item.data.praisedCount = item.data.praisedCount
+                })
                 this.setData({
                     videoList:r.datas,
                     videoListId:id

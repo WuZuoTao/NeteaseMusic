@@ -11,7 +11,7 @@
                 <view class="itemName">
                     <image src="{{item.data.creator.avatarUrl}}" class="nameImage"></image>
                     <text class="name">{{item.data.creator.nickname}}</text>
-                    <text class="iconfont icon-kongxin icon">115</text>
+                    <text class="iconfont icon-D-dianzan icon">{{item.data.praisedCount}}</text>
                 </view>
             </view>
         </view>

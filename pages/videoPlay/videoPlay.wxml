@@ -10,6 +10,8 @@
         bindfullscreenchange="isShowControls"
         controls="{{controls}}"
         catchtap="commandVideoFun"
+    
+        style="{{isComment? 'margin:0;animation: videoShow 0.5s;':'animation: videoIsShow 0.5s;'}}"
         ><text class="iconfont icon-bofangqi-bofang videoTextIcon" wx:if="{{isPause}}"></text></video>
     </view>
     <view class="bottomConten">
@@ -30,7 +32,7 @@
                     <view class="iconfont icon-dianzan_kuai icon {{like ? 'lick':''}}"></view>
                     <view>{{rightStatus.likedCount?rightStatus.likedCount:'点赞'}}</view>
                  </view>
-                <view class="status">
+                <view class="status" bindtap="isCommentFun">
                     <view class="iconfont icon-liuyan icon"></view>
                     <view>{{rightStatus.commentCount? rightStatus.commentCount:'抢沙发'}}</view>
                 </view>
@@ -45,9 +47,57 @@
             </view>
         </view>
         <view class="bottomComment">
-        <text>千言万语，汇成一句话</text>
+        <text bindtap="isCommentFun">千言万语，汇成一句话</text>
         <view class="iconfont icon-quanping2 commentIcon" bindtap="magnifyFun"></view>
         </view>
     </view>
     <text class="iconfont icon-dianzan_kuai likeIconConten" wx:if="{{likeIconList.length > 1}}" wx:for="{{likeIconList}}" wx:key="index" style="top:{{item.top }}rpx;left:{{item.left}}rpx;" bindtap="commandVideoFun"></text>
+    <view class="commentConten" hidden="{{!isComment}}">
+        <view class="iconfont icon-xiala icon" bindtap="isCommentFun"></view>
+        <view class="commenetText">
+            <view class="p">评论（{{rightStatus.commentCount}}）</view>
+            <text class="t textColor"data-id="t">推荐</text>
+            <view class="shu"></view>
+            <text class="l"data-id="l">最热</text>
+            <view class="shu"></view>
+            <text class="x"data-id="x">最新</text>
+        </view>
+        <scroll-view class="commenetScrollView" scroll-y enable-flex refresher-enabled  bindscrolltolower="bindscrolltolowerFun">
+            <view class="scrollItem" wx:for="{{commentNew}}" wx:key="index">
+                <view class="itemLeft">
+                    <image class="itemImage" src="{{item.user.avatarUrl}}"></image>
+                </view>
+                <view class="itemright">
+                    <view class="rightTop">
+                        <view class="topLeft">
+                            <view class="name">{{item.user.nickname}}</view>
+                            <view class="time">{{item.timeStr}}</view>
+                        </view>
+                        <view class="topRight">
+                            <text class="renshu">{{item.likedCount?item.likedCount:''}}</text>
+                            <text class="iconfont icon-D-dianzan"></text>
+                        </view>
+                    </view>
+                    <view class="itemCent">{{item.content}}
+                    </view>
+                    <view class="itemCentLike" wx:if="{{item.beReplied[0]}}">
+                        <text class="likeName">{{item.beReplied[0].user.nickname}}：</text>
+                        <text class="likeText">{{item.beReplied[0].content}}</text>
+                        <view class="likeMore">{{item.beReplied.length}}条回复<text class="iconfont icon-gengduo"></text></view>
+                </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="itemBottomSearch">
+            <view class="bottom">
+                <input
+                adjust-position="{{false}}"
+                type="text" 
+                class="search" 
+                placeholder="叮！听说你有点小想法？" placeholder-class="placeholderText"/>
+                <text class="iconfont icon-dongman textIcon"></text>
+                <text class="iconfont icon-wudanmu"></text>
+            </view>
+        </view>
+    </view>
 </view>

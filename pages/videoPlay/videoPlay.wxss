@@ -13,7 +13,6 @@
 }
 video{
     width: 100%;
-    margin: 0;
     margin: 28% 0;
     z-index: 50;
 }
@@ -94,6 +93,9 @@ video{
     display: flex;
     justify-content: space-between;
 }
+.bottomComment text{
+    flex: 1;
+}
 .bottomComment .commentIcon{
     width: 50rpx;
     height: 50rpx;
@@ -157,5 +159,166 @@ video{
     }
     100%{
         transform: rotate(0deg);
+    }
+}
+/* 评论下拉框 */
+.commentConten{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: calc(100vh - 450rpx);
+    background: #ffffff;
+    z-index: 999;
+    animation: commentShow .5s;
+}
+.commentConten .commenetScrollView{
+    height: calc(100% - 230rpx);
+}
+.commentConten .icon{
+    font-size: 30rpx;
+    color: rgb(193, 194, 196);
+    height: 30rpx;
+    text-align: center;
+    padding: 10rpx 0 20rpx 0;
+}
+.commentConten .commenetText{
+    display: flex;
+    align-items: center;
+    margin:0 20rpx;
+    font-size: 26rpx;
+}
+.commenetText .p{
+    flex: 1;
+    font-size: 30rpx;
+}
+.commenetText text{
+    color: #cac5c5;
+    padding-left:  20rpx;
+}
+.shu{
+    width: 1rpx;
+    height: 20rpx;
+    background: #cac5c5;
+}
+.commenetText .textColor{
+    color: #000;
+}
+.commenetText .t,.l{
+    padding-right: 20rpx;
+}
+.commenetScrollView{
+    display: flex;
+    flex-direction: column;
+}
+.commenetScrollView .scrollItem{
+    margin-top: 20rpx;
+    display: flex;
+}
+.itemLeft .itemImage{
+    margin-left: 20rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+.itemright{
+    width: 100%;
+    padding-right:20rpx;
+    padding-bottom: 20rpx;
+    margin-left: 10rpx;
+    border-bottom: 1rpx solid #b6b6b6;
+    box-sizing: border-box;
+}
+.itemright .rightTop{
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    color:#b6b6b6;
+}
+
+.itemright .rightTop .topLeft{
+    flex: 1;
+}
+.rightTop .topLeft .time{
+    font-size: 22rpx;
+}
+.topRight .renshu{
+    margin-right: 15rpx;
+}
+.itemright .itemCent{
+    margin: 20rpx 0;
+}
+.itemCentLike{
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+    border-radius: 20rpx;
+    background: #f3f0f0;
+}
+.itemCentLike .likeName{
+    color: #639aff;
+}
+.itemCentLike .likeMore{
+    margin-top: 15rpx;
+    color: #5ea3f1;
+}
+.itemBottomSearch{
+    position: absolute;
+    width: 100%;
+    height: 90rpx;
+    bottom: 40rpx;
+    padding: 0 20rpx;
+}
+.itemBottomSearch .bottom{
+    height: 100%;
+    margin: 0 20rpx;
+    display: flex;
+    align-items: center;
+}
+.bottom .search{
+    flex: 1;
+    height: 60rpx;
+    padding: 0 40rpx;
+    background: #f8f6f6;
+    border-radius: 30rpx;
+}
+.bottom .placeholderText{
+    color: #e4e1e1;
+    font-size: 28rpx;
+}
+.bottom .textIcon{
+    color: rgb(255, 59, 59);
+    margin: 0 20rpx;
+}
+.bottom text{
+    font-size: 55rpx;
+}
+/* 底底数输入宽 */
+.itemBottomSearch{
+    border-top: 1rpx solid #b6b6b6;
+    box-sizing: border-box;
+}
+/* 评论弹出动画 */
+@keyframes commentShow{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: calc(100vh - 450rpx);
+    }
+}
+/* 播放按钮动画 */
+@keyframes videoShow{
+    0%{
+        margin-top: 28%;
+    }
+    100%{
+        margin-top: 0;
+    }
+}
+@keyframes videoIsShow{
+    0%{
+        margin-top: 0;
+    }
+    100%{
+        margin-top: 28%;
     }
 }

@@ -1,8 +1,8 @@
 @font-face {
     font-family: "iconfont"; /* Project id 3340676 */
-    src: url('//at.alicdn.com/t/font_3340676_elvccz78op.woff2?t=1652320610427') format('woff2'),
-         url('//at.alicdn.com/t/font_3340676_elvccz78op.woff?t=1652320610427') format('woff'),
-         url('//at.alicdn.com/t/font_3340676_elvccz78op.ttf?t=1652320610427') format('truetype');
+    src: url('//at.alicdn.com/t/font_3340676_28uv165sudo.woff2?t=1652348966262') format('woff2'),
+         url('//at.alicdn.com/t/font_3340676_28uv165sudo.woff?t=1652348966262') format('woff'),
+         url('//at.alicdn.com/t/font_3340676_28uv165sudo.ttf?t=1652348966262') format('truetype');
   }
   
   .iconfont {
@@ -11,6 +11,26 @@
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-danmukai:before {
+    content: "\e60a";
+  }
+  
+  .icon-wudanmu:before {
+    content: "\e7cb";
+  }
+  
+  .icon-icon_dongmanmoxing:before {
+    content: "\e62d";
+  }
+  
+  .icon-dongman:before {
+    content: "\e6f5";
+  }
+  
+  .icon-xiala:before {
+    content: "\e62c";
   }
   
   .icon-dianzan_kuai:before {
